@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+***********************************************************************************************
+website.publishproj
+
+WARNING: DO NOT MODIFY this file, it is used for the web publish process.
+
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+***********************************************************************************************
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{70266e74-c910-4a06-9658-2a16bc9fd4ec}</ProjectGuid>
+    <SourceWebPhysicalPath>$(MSBuildThisFileDirectory)</SourceWebPhysicalPath>
+    <SourceWebVirtualPath>/SMSVMA.GatewayService</SourceWebVirtualPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SourceWebProject>
+    </SourceWebProject>
+    <SourceWebMetabasePath>
+    </SourceWebMetabasePath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- for VS2010 we need to use 10.5 but for VS2012+ we should use VisualStudioVersion -->
+    <WebPublishTargetsVersion Condition=" '$(WebPublishTargetsVersion)' =='' and '$(VisualStudioVersion)' == 10.0 ">10.5</WebPublishTargetsVersion>
+    <WebPublishTargetsVersion Condition=" '$(WebPublishTargetsVersion)'=='' ">$(VisualStudioVersion)</WebPublishTargetsVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(WebPublishTargetsVersion)</VSToolsPath>
+    <_WebPublishTargetsPath Condition=" '$(_WebPublishTargetsPath)'=='' ">$(VSToolsPath)</_WebPublishTargetsPath>
+    <AssemblyFileVersion Condition="'$(AssemblyFileVersion)' == ''">1.0.0.0</AssemblyFileVersion>
+    <AssemblyVersion Condition="'$(AssemblyVersion)' == ''">1.0.0.0</AssemblyVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AssemblyAttributes Include="AssemblyFileVersion">
+      <Value>$(AssemblyFileVersion)</Value>
+    </AssemblyAttributes>
+    <AssemblyAttributes Include="AssemblyVersion">
+      <Value>$(AssemblyVersion)</Value>
+    </AssemblyAttributes>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\FreshSystems Common Utils\Main\Source\EmailSender.DLL\EmailSender.DLL.csproj">
+      <Project>{CF0F1E88-7C4B-4C86-B696-60AD21008EEE}</Project>
+      <Name>EmailSender.DLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\FreshSystems Common Utils\Main\Source\FreshSystems.Utils\FreshSystems.Utils.csproj">
+      <Project>{31DCE4BF-9C77-42D6-8072-24EBA3AAA638}</Project>
+      <Name>FreshSystems.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\FreshSystems Common Utils\Main\Source\FreshSystems.Web\FreshSystems.Web.csproj">
+      <Project>{50DF5EB1-3028-43FA-A141-F958A0A191FC}</Project>
+      <Name>FreshSystems.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMSVend.ErrorCodes\SMSVend.ErrorCodes.csproj">
+      <Project>{7F2F72C3-4B0A-4AB9-9CF8-16409295BBFE}</Project>
+      <Name>SMSVend.ErrorCodes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMSVend.Gateway.Interface\SMSVend.Gateway.Interface.csproj">
+      <Project>{3976ED2F-7633-4AE1-B786-06D983D5FED9}</Project>
+      <Name>SMSVend.Gateway.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMSVMA.BLL\SMSVMA.BLL.csproj">
+      <Project>{39B88C19-4A3C-480D-8AB3-475E89281869}</Project>
+      <Name>SMSVMA.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMSVMA.Common\SMSVMA.VMACommon.csproj">
+      <Project>{D8D0EB71-173B-4F06-A5BD-E44572D741B6}</Project>
+      <Name>SMSVMA.VMACommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMSVMA.DataUtils\SMSVMA.DataUtils.csproj">
+      <Project>{8FA5D690-C27F-4E9B-BC11-6FB1472D6235}</Project>
+      <Name>SMSVMA.DataUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMSVMA.DLL\SMSVMA.DLL.csproj">
+      <Project>{55FE2E19-B08D-401E-8A9B-27C0D29F84BA}</Project>
+      <Name>SMSVMA.DLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMSVMA.PrepaidWorldTokenQueue\SMSVMA.PrepaidWorldTokenQueue.csproj">
+      <Project>{36F50FA5-8D7A-4E6E-93B7-F07674359AF5}</Project>
+      <Name>SMSVMA.PrepaidWorldTokenQueue</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(_WebPublishTargetsPath)\Web\Microsoft.WebSite.Publishing.targets" />
+</Project>
